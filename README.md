@@ -14,4 +14,13 @@
 
 8. creamos el primer commit
 
-9. hacemos el primer push
+9. hacemos el primer push (me pidió un especie de autenticación github)
+
+10. activo el entorno virtual
+
+11. instalo Django
+
+12. crear el requirements.txt con los datos de las dependencias usando el comando pip freeze > requirements.txt
+
+13. crear el proyecto django donde estamos trabajando con el comando django-admin startproject <nombre_del_proyecto> .
+14. probamos el proyecto ejecutando primero python manage.py migrate y luego python manage.py runservermi
