@@ -1,4 +1,4 @@
-Pre-entrega 3:
+Pre-entrega N°3:
 
 A. Proyecto Web Django con patrón MVT que incluya:
  
