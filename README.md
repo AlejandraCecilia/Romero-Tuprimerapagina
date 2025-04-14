@@ -23,4 +23,4 @@
 12. crear el requirements.txt con los datos de las dependencias usando el comando pip freeze > requirements.txt
 
 13. crear el proyecto django donde estamos trabajando con el comando django-admin startproject <nombre_del_proyecto> .
-14. probamos el proyecto ejecutando primero python manage.py migrate y luego python manage.py runservermi
+14. probamos el proyecto ejecutando primero python manage.py migrate y luego python manage.py runserver

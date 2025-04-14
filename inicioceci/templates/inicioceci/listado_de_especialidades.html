@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "crear_especialidad" %}>Crear especialidad</a>
+        <a href={% url "listado_de_especialidades" %}>listado de especialidades</a>
+    </nav>
+
+    <h1>Listado de especialidades</h1>
+    {% if especialidades %}
+    <ul>
+        {% for especialidad in especialidades %}
+        <li>
+          {{especialidad}}
+        </li>
+        {% endfor %}
+    </ul>   
+        {% else %}
+        <p>Sin especialidades creadas</p>
+        {% endif %}
+</body>
+</html>
