@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from inicioceci.forms import CreacionEspecialidad
 from inicioceci.models import Especialidad
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 def inicio(request):
     #return HttpResponse('HolaCeci')
@@ -18,7 +21,7 @@ def crear_especialidad(request):
         formulario = CreacionEspecialidad(request.POST)
         if formulario.is_valid():
             info = formulario.cleaned_data
-            especialidad = Especialidad(nombre=info.get('nombre'), tipo=info.get('tipo'))
+            especialidad = Especialidad(nombre=info.get('nombre'), tipo=info.get('tipo'), fecha_creation=info.get('fecha_creation'))
             especialidad.save()
             return redirect('inicio')
         else:
@@ -29,4 +32,27 @@ def crear_especialidad(request):
 def listado_de_especialidades(request):
     especialidades = Especialidad.objects.all()
     return render(request, 'inicioceci/listado_de_especialidades.html',{'especialidades': especialidades})
-# Create your views here.
+
+#vista normal
+
+def detalle_especialidad(request, especialidad_en_especifico):
+    especialidad = Especialidad.objects.get(id=especialidad_en_especifico)
+    return render(request, 'inicioceci/detalle_especialidad.html', {'especialidad': especialidad})
+
+#clase basada en vista
+class VistaDetalleEspecialidad(DetailView):
+    model = Especialidad
+    template_name = "inicioceci/detalle_especialidad.html"
+
+#clase basada en vista de edicion
+class VistaModificarEspecialidad(UpdateView):
+    model = Especialidad
+    template_name = "inicioceci/modificar_especialidad.html"
+    fields = ["nombre", "tipo", "fecha_creation"]
+    succes_url = reverse_lazy('listado_de_especialidades')
+
+#clase para eliminar
+class VistaEliminarEspecialidad(DeleteView):
+    model = Especialidad
+    template_name = "inicioceci/eliminar_especialidad.html"
+    success_url = reverse_lazy('listado_de_especialidades')

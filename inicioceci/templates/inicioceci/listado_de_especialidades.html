@@ -18,6 +18,10 @@
         {% for especialidad in especialidades %}
         <li>
           {{especialidad}}
+          | <a href={% url "detalle_especialidad" especialidad.id %}>Ver mas</a>
+          | <a href={% url "modificar_especialidad" especialidad.id %}>Modificar</a>
+          | <a href={% url "eliminar_especialidad" especialidad.id %}>Eliminar</a> 
+
         </li>
         {% endfor %}
     </ul>   
