@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <a href={% url "inicio" %}>Inicio</a>
-        <a href={% url "crear_especialidad" %}>Crear especialidad</a>
-        <a href={% url "listado_de_especialidades" %}>listado de especialidades</a>
-    </nav>
+
+    {% extends "base.html" %}
+
+    {% block contenido %}
+
     <h1>Eliminar {{especialidad}}</h1>
     <form action="{% url "eliminar_especialidad" especialidad.id %}" method="POST">
         {% csrf_token %}
@@ -18,6 +10,8 @@
         <p>Desea borrar la especialidad?</p>
 
         <input type="submit" value="Confirmar eliminar">
-    </form>    
-</body>
-</html>
+    </form>  
+     
+    {% endblock contenido %}
+
+    

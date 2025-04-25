@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "listado_de_especialidades" %}>Especialidades</a>
+       
+        {% if request.user.is_authenticated %}
+        <a href="#">{{request.user.username}}</a>
+        <form action={% url "logout" %} method="post">
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+       </form>
+       {% else %} 
+  
+        <form action={% url "login" %} method="get">
+              <input type="submit" value="Login">
+        </form>
+   
+        <form action={% url "registro" %} method="get">
+            <input type="submit" value="Registrarse">
+      </form>
+
+      {% endif %} 
+
+    </nav>
+    
+    {% block contenido %}{% endblock contenido %}
+</body>
+</html>
+
+   <!-- <a href={% url "login" %}>Login</a> -->
+        <!--        
+        <a href="#">al dope</a>-->
+        <!-- Esto lo dejo como comentario, saco esto de acá: 
+         <a href={% url "crear_especialidad" %}>Crear especialidad</a> y modifico esto:
+        <a href={% url "listado_de_especialidades" %}>listado de especialidades</a> -->

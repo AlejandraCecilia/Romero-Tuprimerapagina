@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <a href={% url "inicio" %}>Inicio</a>
-        <a href={% url "crear_especialidad" %}>Crear especialidad</a>
-        <a href={% url "listado_de_especialidades" %}>listado de especialidades</a>
-    </nav>
+
+    {% extends "base.html" %}
+
+    {% block contenido %}
+
+     
     <h1>Modificar {{especialidad}}</h1>
     <form action="{% url "modificar_especialidad" especialidad.id %}" method="POST">
         {% csrf_token %}
@@ -18,6 +11,34 @@
         {{form}}
 
         <input type="submit" value="Modificar">
-    </form>    
+    </form>   
+
+    {% endblock contenido %}
+
+  <!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "listado_de_especialidades" %}>Especialidades</a>
+              
+    </nav>
+
+-->
+  <!--
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "crear_especialidad" %}>Crear especialidad</a>
+        <a href={% url "listado_de_especialidades" %}>listado de especialidades</a>
+    </nav>-->
+
+ <!--  
 </body>
 </html>
+-->

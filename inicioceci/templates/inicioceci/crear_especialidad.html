@@ -1,3 +1,22 @@
+
+
+{% extends "base.html" %}
+
+{% block contenido %}
+
+    <h1>Creación de especialidad</h1>
+    <form action="{% url "crear_especialidad" %}" method="POST">
+        {% csrf_token %}
+
+        {{formulario}}
+
+        <input type="submit" value="Crear">
+    </form>  
+     
+{% endblock contenido %}
+
+
+   <!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +27,19 @@
 <body>
     <nav>
         <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "listado_de_especialidades" %}>Especialidades</a>
+        
+    </nav>
+-->
+
+   <!-- 
+    <nav>
+        <a href={% url "inicio" %}>Inicio</a>
         <a href={% url "crear_especialidad" %}>Crear especialidad</a>
         <a href={% url "listado_de_especialidades" %}>listado de especialidades</a>
-    </nav>
+    </nav> -->
+
+<!-- 
     <h1>Creación de especialidad</h1>
     <form action="{% url "crear_especialidad" %}" method="POST">
         {% csrf_token %}
@@ -19,5 +48,8 @@
 
         <input type="submit" value="Crear">
     </form>    
+-->
+   <!-- 
 </body>
 </html>
+-->
