@@ -5,11 +5,15 @@ from inicioceci.models import Especialidad
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
 
 def inicio(request):
     #return HttpResponse('HolaCeci')
     return render(request, 'inicioceci/inicio.html')
 
+@login_required
 def crear_especialidad(request):
 
     formulario = CreacionEspecialidad()
@@ -45,14 +49,14 @@ class VistaDetalleEspecialidad(DetailView):
     template_name = "inicioceci/detalle_especialidad.html"
 
 #clase basada en vista de edicion
-class VistaModificarEspecialidad(UpdateView):
+class VistaModificarEspecialidad(LoginRequiredMixin, UpdateView):
     model = Especialidad
     template_name = "inicioceci/modificar_especialidad.html"
     fields = ["nombre", "tipo", "fecha_creation"]
     succes_url = reverse_lazy('listado_de_especialidades')
 
 #clase para eliminar
-class VistaEliminarEspecialidad(DeleteView):
+class VistaEliminarEspecialidad(LoginRequiredMixin, DeleteView):
     model = Especialidad
     template_name = "inicioceci/eliminar_especialidad.html"
     success_url = reverse_lazy('listado_de_especialidades')
