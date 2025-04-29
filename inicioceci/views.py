@@ -53,7 +53,10 @@ class VistaModificarEspecialidad(LoginRequiredMixin, UpdateView):
     model = Especialidad
     template_name = "inicioceci/modificar_especialidad.html"
     fields = ["nombre", "tipo", "fecha_creation"]
-    succes_url = reverse_lazy('listado_de_especialidades')
+    def get_success_url(self):
+        return reverse_lazy('listado_de_especialidades')
+
+    #succes_url = reverse_lazy('listado_de_especialidades')
 
 #clase para eliminar
 class VistaEliminarEspecialidad(LoginRequiredMixin, DeleteView):
