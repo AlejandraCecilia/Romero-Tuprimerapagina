@@ -1,23 +1,41 @@
-Pre-entrega N°3:
+Entrega Final
+Web Django con patrón MVT: Mi primer aplicación.
 
-A. Proyecto Web Django con patrón MVT que incluya:
- 
- - [ ] herencia templates
- - [x] Por lo menos 1 clases en models.
- - [x] Un formulario para insertar datos a por cada model creado..
- - [x] Una vista que contenga el listado de los objetos del modelo.
- - [ ] Barra de busqueda en el listado.
- - [x] Readme que indique el orden en el que se prueban las cosas y/o donde están las funcionalidades.
- 
- **IMPORTANTE**: A los puntos anteriores se le suma toda la estructura de archivos como lo vimos en clase.
-     - [x] .gitignore
-     - [x] requirements.txt
-     - [x] la navegacion
-     - [x] etc
+1. Breve Descripción:
+Se trata de una web para un consultorio médico donde se atienden distintas especialidades. La funcionalidad relacionada con las especialidades está en la aplicacion 'inicioceci' y todo lo relacionado con usuario y autenticación esta en la aplicación 'users'.
+Acceso a video: 
+https://drive.google.com/file/d/12SldQOU9yea71dNvHz7OC42ufC3afxMh/view?usp=sharing
 
 
+2. Puntos trabajados
 
-B. Pasos Creación Proyecto Django.
+* Entrega individual
+* subir a github
+* readme como la entrega 3
+* video de maximo 10 min que muestre la pagina y sus funcionalidades (con o sin audio)
+* Uso de herencia de templates
+* Exista gitignore
+* Existencia del archivo requirements.txt actualizado.
+* Uso de minimo 2 clases basadas en vista.
+* Uso de minimo un mixin en una CBV y un decorador en una view comun.
+* Hacer uso de Estaticos (carpeta static con la carga de templates desde bootstrap)
+* Una vista de inicio
+* Crear un modelo principal que contenga los siguiente campos como minimo: 3 Charfield (o 2 Charfield y un Integerfield), 1 campo de imagen, 1 de fecha
+* Vista de listado de los objetos del modelo principal (modelo a eleccion). En la cual cada objeto mostrara solo alguno de sus datos
+* Mensaje que de aviso en caso de no haber ningun objeto creado o al utilizar el buscador no encontrar tampoco algun objeto
+* Desde el listado:
+-poder acceder a una vista que muestre el detalle de el objeto seleccionado
+-poder acceder a una vista de creacion, una de edicion y una de borrado de los objetos del listado
+
+* Registrar en el apartado de admin todos los modelos creados
+
+* Tener una app para el manejo de todas las vistas relacionadas al usuario/autenticacion
+
+* Desarrollar las vistas para un login, un logout y el registro de un usuario al cual se le solicite: username, email, password
+
+
+
+3. Pasos Creación Proyecto Django.
 
 1. creamos una carpeta donde vamos a meter el proyecto
 
